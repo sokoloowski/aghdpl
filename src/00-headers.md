@@ -2,6 +2,7 @@
 lang: pl
 bibliography:
 - src/bibliografia.bib
+- from-doi.bib
 author: Piotr Sokołowski
 shortauthor: P. Sokołowski
 titlePL: Przygotowanie długiej i fascynującej pracy dyplomowej w Markdown
