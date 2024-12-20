@@ -29,13 +29,12 @@
 \RequirePackage{tocloft}
 
 \RequirePackage[font=small, labelfont=bf, labelsep=period]{caption}
-\RequirePackage{subcaption}
 \RequirePackage{siunitx}
 \RequirePackage{enumerate}
 \RequirePackage{enumitem}
 \RequirePackage[all,defaultlines=2]{nowidow} % Kontrola sierot i wdów - działa lepiej niż \widowpenalty i \clubpenalty
 
-\geometry{lmargin=30mm, rmargin=20mm, tmargin=30mm, bmargin=30mm, foot=10mm, head=10mm}
+\geometry{lmargin=30mm, rmargin=20mm, tmargin=20mm, bmargin=20mm, foot=10mm, head=10mm}
 \definecolor{Green}{rgb}{0.1,0.5,0.1}
 
 \def\shorttitlePL#1   {\gdef\@shorttitlePL{#1}}
@@ -62,7 +61,7 @@
 }
 
 \def\thesistable{
-\begin{tabular}{p{45mm}l}
+\begin{tabular}{p{50mm}l}
 Autor: & {\itshape \@author}\\[-1mm]
 Kierunek studi\'{o}w: & {\itshape \@degreeprogramme}\\[-1mm]
 Opiekun pracy: & {\itshape \@supervisor}\\
@@ -75,7 +74,7 @@ Opiekun pracy: & {\itshape \@supervisor}\\
 }
 
 \def\thesistable{
-\begin{tabular}{p{45mm}l}
+\begin{tabular}{p{50mm}l}
 Author: & {\itshape \@author}\\[-1mm]
 Degree programme: & {\itshape \@degreeprogramme}\\[-1mm]
 Supervisor: & {\itshape \@supervisor}\\
@@ -92,26 +91,22 @@ Supervisor: & {\itshape \@supervisor}\\
 \begin{center}
 \vspace*{0mm}
 
-\includegraphics[scale=0.6]{agh}
-
-\vspace*{2mm}
-
-{\sffamily{\large{\bfseries{\scshape Akademia G\'{o}rniczo-Hutnicza im. Stanis\l{}awa Staszica w Krakowie}}}
+\includegraphics[]{agh}
 
 \vspace*{1mm}
 
-{\small\bfseries \MakeUppercase{\@faculty}}}
-\vspace*{8mm}
+{\sffamily \fontsize{10.5pt}{12.6pt}\selectfont \bfseries \MakeUppercase{\@faculty}}
+\vspace*{15mm}
 
 
-{\sffamily\Large \@thesistype}
+{\sffamily \fontsize{18pt}{21.6pt}\selectfont \@thesistype}
 \vspace*{9mm}
 
-{\sffamily\Large\itshape \@titlePL}
+{\sffamily \fontsize{16pt}{19.2pt} \itshape \@titlePL}
 \vspace*{1mm}
 
-{\sffamily\Large\itshape \@titleEN}
-\vspace{40mm}
+{\sffamily \fontsize{16pt}{19.2pt} \itshape \@titleEN}
+\vspace{\fill}
 \end{center}
 
 \noindent
@@ -119,7 +114,7 @@ Supervisor: & {\itshape \@supervisor}\\
 \thesistable
 }
 
-\vspace*{9mm}
+\vspace*{17mm}
 
 \centerline{\small\sffamily Krak\'{o}w, \@date}
 
@@ -128,7 +123,7 @@ Supervisor: & {\itshape \@supervisor}\\
 
 {~~}\vspace{20mm}
 
-{\large Uprzedzony o~odpowiedzialno\'sci karnej na~podstawie art.~115 ust.~1~i~2 ustawy z~dnia 4~lutego 1994~r. o~prawie autorskim i~prawach pokrewnych (t.j. Dz.U. z~2006~r. Nr~90, poz.~631 z~p{\'o}{\'z}n. zm.): ,,Kto przyw\l{}aszcza sobie autorstwo albo~wprowadza w~b\l{}\k{a}d co~do~autorstwa ca\l{}o\'sci lub cz\k{e}\'sci cudzego utworu albo~artystycznego wykonania, podlega grzywnie, karze ograniczenia wolno\'sci albo~pozbawienia wolno\'sci do~lat~3. Tej~samej karze podlega, kto~rozpowszechnia bez~podania nazwiska lub~pseudonimu tw\'orcy cudzy utw\'or w~wersji oryginalnej albo~w~postaci opracowania, artystycznego wykonania albo~publicznie zniekszta\l{}ca taki utw\'or, artystyczne wykonanie, fonogram, wideogram lub nadanie.'', a~tak\.ze uprzedzony o~odpowiedzialno\'sci dyscyplinarnej na~podstawie art.~211 ust.~1 ustawy z~dnia 27~lipca 2005~r. Prawo o~szkolnictwie wy\.zszym (t.j. Dz.~U. z~2012~r. poz.~572, z~p\'o\'zn. zm.): ,,Za~naruszenie przepis\'ow obowi\k{a}zuj\k{a}cych w~uczelni oraz~za~czyny uchybiaj\k{a}ce godno\'sci studenta student ponosi odpowiedzialno\'s\'c dyscyplinarn\k{a} przed komisj\k{a} dyscyplinarn\k{a} albo~przed s\k{a}dem kole\.ze\'nskim samorz\k{a}du studenckiego, zwanym dalej <<s\k{a}dem kole\.ze\'nskim>>.'', o\'swiadczam, \.ze~niniejsz\k{a} prac\k{e} dyplomow\k{a} wykona\l{}em(-am) osobi\'scie i~samodzielnie i~\.ze~nie~korzysta\l{}em(-am) ze~\'zr\'ode\l{} innych ni\.z~wymienione w pracy. }
+% {\large Uprzedzony o~odpowiedzialno\'sci karnej na~podstawie art.~115 ust.~1~i~2 ustawy z~dnia 4~lutego 1994~r. o~prawie autorskim i~prawach pokrewnych (t.j. Dz.U. z~2006~r. Nr~90, poz.~631 z~p{\'o}{\'z}n. zm.): ,,Kto przyw\l{}aszcza sobie autorstwo albo~wprowadza w~b\l{}\k{a}d co~do~autorstwa ca\l{}o\'sci lub cz\k{e}\'sci cudzego utworu albo~artystycznego wykonania, podlega grzywnie, karze ograniczenia wolno\'sci albo~pozbawienia wolno\'sci do~lat~3. Tej~samej karze podlega, kto~rozpowszechnia bez~podania nazwiska lub~pseudonimu tw\'orcy cudzy utw\'or w~wersji oryginalnej albo~w~postaci opracowania, artystycznego wykonania albo~publicznie zniekszta\l{}ca taki utw\'or, artystyczne wykonanie, fonogram, wideogram lub nadanie.'', a~tak\.ze uprzedzony o~odpowiedzialno\'sci dyscyplinarnej na~podstawie art.~211 ust.~1 ustawy z~dnia 27~lipca 2005~r. Prawo o~szkolnictwie wy\.zszym (t.j. Dz.~U. z~2012~r. poz.~572, z~p\'o\'zn. zm.): ,,Za~naruszenie przepis\'ow obowi\k{a}zuj\k{a}cych w~uczelni oraz~za~czyny uchybiaj\k{a}ce godno\'sci studenta student ponosi odpowiedzialno\'s\'c dyscyplinarn\k{a} przed komisj\k{a} dyscyplinarn\k{a} albo~przed s\k{a}dem kole\.ze\'nskim samorz\k{a}du studenckiego, zwanym dalej <<s\k{a}dem kole\.ze\'nskim>>.'', o\'swiadczam, \.ze~niniejsz\k{a} prac\k{e} dyplomow\k{a} wykona\l{}em(-am) osobi\'scie i~samodzielnie i~\.ze~nie~korzysta\l{}em(-am) ze~\'zr\'ode\l{} innych ni\.z~wymienione w pracy. }
 
 
 \clearpage \titlepage
@@ -136,6 +131,7 @@ Supervisor: & {\itshape \@supervisor}\\
 \vspace*{15cm} \vfill
 \begin{flushright} 
 \begin{minipage}[!h]{10cm}
+\setcounter{page}{3}
 {\Large\itshape \@acknowledgements}
 \end{minipage}
 \end{flushright}
@@ -223,21 +219,6 @@ Supervisor: & {\itshape \@supervisor}\\
 
 % Zmiana kroju czcionki URL-i z czcionki o stałej szerokości na szeryfową z kursywą.
 \renewcommand\UrlFont{\rmfamily\itshape}
-
-
-%---------------------------------------------------------------------------
-% Ustawienia podpisów pod ilustracjami
-%---------------------------------------------------------------------------
-
-\captionsetup[subfigure]{labelfont=md}
-\captionsetup{%
-	% Użyj okrągłych nawiasów wokół odwołań do "podilustracji".
-	subrefformat=parens,
-	% Margines z obu stron podpisu.
-	margin=2cm,
-	% W przypadku podpisów mieszczących się w jednej linii nie stosuj justowania, tylko wyśrodkuj cały podpis.
-	singlelinecheck=on,
-}
 
 
 %---------------------------------------------------------------------------

@@ -1,14 +1,52 @@
-\documentclass[11pt]{aghdpl}
-% \documentclass[en,11pt]{aghdpl}  % praca w języku angielskim
+\documentclass[12pt]{aghdpl}
+% \documentclass[en,12pt]{aghdpl}  % praca w języku angielskim
 
 % Lista wszystkich języków stanowiących języki pozycji bibliograficznych użytych w pracy.
 % (Zgodnie z zasadami tworzenia bibliografii każda pozycja powinna zostać utworzona zgodnie z zasadami języka, w którym dana publikacja została napisana.)
-\usepackage[english,polish]{babel}
-
-% Użyj polskiego łamania wyrazów (zamiast domyślnego angielskiego).
-\usepackage{polski}
+$if(lang)$
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+$if(babel-lang)$
+\babelprovide[main,import]{$babel-lang$}
+$if(mainfont)$
+\ifPDFTeX
+\else
+\babelfont{rm}[$for(mainfontoptions)$$mainfontoptions$$sep$,$endfor$]{$mainfont$}
+\fi
+$endif$
+$endif$
+$for(babel-otherlangs)$
+\babelprovide[import]{$babel-otherlangs$}
+$endfor$
+$for(babelfonts/pairs)$
+\babelfont[$babelfonts.key$]{rm}{$babelfonts.value$}
+$endfor$
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+$endif$
 
 \usepackage[utf8]{inputenc}
+
+% Add pandoc compatibility
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+$if(links-as-notes)$
+% Make links footnotes instead of hotlinks:
+\DeclareRobustCommand{\href}[2]{#2\footnote{\url{#1}}}
+$endif$
+
+$for(header-includes)$
+$header-includes$
+$endfor$
 
 % dodatkowe pakiety
 
@@ -16,6 +54,27 @@
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amsthm}
+
+\DeclareMathOperator{\atantwo}{atan2}
+\DeclareMathOperator{\asin}{asin}
+
+
+% --- < obrazki > ---
+
+\graphicspath{{./src/}}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+
+% Keep figures in defined places
+% \usepackage{float}
+% \floatplacement{figure}{H}
+
 
 % --- < bibliografia > ---
 
@@ -27,7 +86,8 @@ sorting=none,
 language=autobib,
 autolang=other,
 % Zapisuj datę dostępu do strony WWW w formacie RRRR-MM-DD.
-urldate=iso8601,
+urldate=iso,
+seconds=true,
 % Nie dodawaj numerów stron, na których występuje cytowanie.
 backref=false,
 % Podawaj ISBN.
@@ -40,6 +100,8 @@ maxbibnames=3,
 % Jeżeli używamy BibTeXa:
 backend=bibtex
 ]{biblatex}
+
+\DeclareFieldFormat{urldate}{(dostęp: \thefield{urlday}.\thefield{urlmonth}.\thefield{urlyear}\isdot)}
 
 \usepackage{csquotes}
 % Ponieważ `csquotes` nie posiada polskiego stylu, można skorzystać z mocno zbliżonego stylu chorwackiego.
@@ -85,13 +147,6 @@ $endfor$
 % }
 
 % ------------------------
-
-\AtBeginDocument{
-	\renewcommand{\tablename}{Tabela}
-	\renewcommand{\figurename}{Rys.}
-}
-
-% ------------------------
 % --- < tabele > ---
 
 \usepackage{array}
@@ -117,7 +172,7 @@ $endfor$
 \shorttitlePL{$if(shorttitlePL)$$shorttitlePL$$else$$titlePL$$endif$} % skrócona wersja tytułu jeśli jest bardzo długi
 \shorttitleEN{$if(shorttitleEN)$$shorttitleEN$$else$$titleEN$$endif$}
 
-\thesistype{Praca dyplomowa}
+\thesistype{$thesistype$}
 %\thesistype{Master of Science Thesis}
 
 \supervisor{$supervisor$}
@@ -145,6 +200,7 @@ $endfor$
 
 % rubber: bibtex.path ./
 
+
 \begin{document}
 
 \titlepages
@@ -162,6 +218,7 @@ $endfor$
 \setcounter{tocdepth}{2}
 \tableofcontents
 \clearpage
+\linespread{1.25}
 
 $body$
 
@@ -171,6 +228,6 @@ $body$
 % \include{dodatekB}
 % itd.
 
-\printbibliography
+\printbibliography[heading=bibnumbered]
 
 \end{document}
