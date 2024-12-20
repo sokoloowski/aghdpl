@@ -1,4 +1,4 @@
-\documentclass[12pt]{aghdpl}
+\documentclass[$lang$,12pt]{aghdpl}
 % \documentclass[en,12pt]{aghdpl}  % praca w języku angielskim
 
 % Lista wszystkich języków stanowiących języki pozycji bibliograficznych użytych w pracy.
