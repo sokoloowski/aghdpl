@@ -7,7 +7,7 @@ OUTPUT_PATH := out
 endif
 
 pdf:
-	pandoc src/*.md -o output.tex --top-level-division=chapter --template=template.latex --biblatex
+	pandoc -F pandoc-crossref src/*.md -o output.tex --top-level-division=chapter --template=template.latex --biblatex
 	latexmk -pdf
 	mkdir -p ${OUTPUT_PATH}
 	mv output.pdf ${OUTPUT_PATH}/praca-dyplomowa-${OUTPUT_FILE_SUFFIX}.pdf
