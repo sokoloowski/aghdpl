@@ -1,0 +1,7 @@
+{
+    "triggerTaskOnSave.tasks": {
+        "Create preview": [
+            "src/*.md", // <-- Glob pattern to specify which files should trigger the task
+        ],
+    }
+}

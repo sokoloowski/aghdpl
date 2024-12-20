@@ -11,5 +11,6 @@ pdf:
 	latexmk -pdf
 	mkdir -p ${OUTPUT_PATH}
 	mv output.pdf ${OUTPUT_PATH}/praca-dyplomowa-${OUTPUT_FILE_SUFFIX}.pdf
+	cp ${OUTPUT_PATH}/praca-dyplomowa-${OUTPUT_FILE_SUFFIX}.pdf ${OUTPUT_PATH}/praca-dyplomowa.pdf
 	latexmk -C
 	rm output*
