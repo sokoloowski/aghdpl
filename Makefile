@@ -7,7 +7,7 @@ OUTPUT_PATH := out
 endif
 
 pdf:
-	echo "" > from-doi.bib
+	rm -f from-doi.bib
 	pandoc --lua-filter diagram-generator.lua --lua-filter doi2cite.lua -F pandoc-crossref src/*.md -o output.tex --top-level-division=chapter --template=template.latex --biblatex
 	latexmk -pdf
 	mkdir -p ${OUTPUT_PATH}
