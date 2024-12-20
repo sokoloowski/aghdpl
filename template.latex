@@ -30,6 +30,7 @@ $endfor$
 $endif$
 
 \usepackage[utf8]{inputenc}
+\usepackage{longtable}
 
 % Add pandoc compatibility
 \providecommand{\tightlist}{%
