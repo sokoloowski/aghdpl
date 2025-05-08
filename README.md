@@ -6,19 +6,21 @@ Opracowanie to powstało za namową mojego promotora, [dr inż. Sebastiana Ernst
 
 Niniejsze opracowanie ma na celu umożliwienie napisania pracy dyplomowej w [Markdown](https://daringfireball.net/projects/markdown/) i wyeksportowanie jej do formatu PDF za pośrednictwem [`pandoc`](https://pandoc.org) oraz [`latexmk`](https://mg.readthedocs.io/latexmk.html).
 
-Napisana praca jest najpierw generowana w formacie `latex`, ponieważ `pandoc` nie obsługuje użytego w szablonie `biblatex`. Następnie tworzony jest dokument PDF, domyślnie `out/praca-dyplomowa-latest`.
+Napisana praca jest najpierw generowana w formacie `latex`, ponieważ `pandoc` nie obsługuje użytego w szablonie `biblatex`. Następnie tworzony jest dokument PDF, domyślnie `out/praca-dyplomowa-latest.pdf`.
 
 # Wymagania
 
 - `make`
 - `latexmk`
-- `pandoc`
+- `pandoc` (tested with version 3.6.4)
 - `pandoc-crossref`
 
 ## Ubuntu (`amd64`)
 
 ```bash
 apt install make texlive-full pandoc
+
+# find version compatible with your pandoc to avoid warnings!
 wget https://github.com/lierdakil/pandoc-crossref/releases/download/latest/pandoc-crossref-Linux.tar.xz
 tar -xf pandoc-crossref-Linux.tar.xz
 mv pandoc-crossref /usr/local/bin

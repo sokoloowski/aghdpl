@@ -91,7 +91,7 @@ Supervisor: & {\itshape \@supervisor}\\
 \begin{center}
 \vspace*{0mm}
 
-\includegraphics[]{agh}
+\includegraphics[width=\textwidth]{agh}
 
 \vspace*{1mm}
 
