@@ -12,18 +12,26 @@ Napisana praca jest najpierw generowana w formacie `latex`, ponieważ `pandoc` n
 
 - `make`
 - `latexmk`
-- `pandoc` (tested with version 3.6.4)
-- `pandoc-crossref`
+- `pandoc` (tested with [version 3.7.0.2](https://github.com/jgm/pandoc/releases/tag/3.7.0.2))
+- `pandoc-crossref` (tested with [version 0.3.20](https://github.com/lierdakil/pandoc-crossref/releases/tag/v0.3.20))
 
 ## Ubuntu (`amd64`)
 
 ```bash
-apt install make texlive-full pandoc
+# Prerequisites
+apt install make texlive-full
 
-# find version compatible with your pandoc to avoid warnings!
-wget https://github.com/lierdakil/pandoc-crossref/releases/download/latest/pandoc-crossref-Linux.tar.xz
+# Pandoc
+wget https://github.com/jgm/pandoc/releases/download/3.7.0.2/pandoc-3.7.0.2-1-amd64.deb
+sudo apt install ./pandoc-3.7.0.2-1-amd64.deb
+
+# Compatible pandoc-crossref
+wget https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.20/pandoc-crossref-Linux-X64.tar.xz
 tar -xf pandoc-crossref-Linux.tar.xz
-mv pandoc-crossref /usr/local/bin
+sudo mv pandoc-crossref /usr/local/bin
+
+# Cleanup
+rm -f "pandoc-*"
 ```
 
 ## macOS
