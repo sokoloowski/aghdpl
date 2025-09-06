@@ -62,6 +62,7 @@ $endfor$
 
 % --- < obrazki > ---
 
+\usepackage{svg}
 \graphicspath{{./src/}}
 \makeatletter
 \newsavebox\pandoc@box

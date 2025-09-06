@@ -210,6 +210,7 @@ Supervisor: & {\itshape \@supervisor}\\
 	output-decimal-marker = {,},
 	%	round-mode=places,
 	%	round-precision=4,
+	mode=match,
 	group-separator={~},
 }
 

@@ -8,7 +8,16 @@ endif
 
 pdf:
 	rm -f from-doi.bib
-	pandoc --lua-filter diagram-generator.lua --lua-filter doi2cite.lua -F pandoc-crossref src/*.md -o output.tex --top-level-division=chapter --template=template.latex --biblatex
+	rm -f output*
+	pandoc \
+		--lua-filter diagram-generator.lua \
+		--lua-filter doi2cite.lua \
+		-F pandoc-crossref \
+		src/*.md -o output.tex \
+		--top-level-division=chapter \
+		--template=template.latex \
+		--syntax-definition=cypher.xml \
+		--biblatex
 	latexmk -pdf
 	mkdir -p ${OUTPUT_PATH}
 	mv output.pdf ${OUTPUT_PATH}/praca-dyplomowa-${OUTPUT_FILE_SUFFIX}.pdf

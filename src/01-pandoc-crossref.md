@@ -13,6 +13,6 @@ lolTitle: "# Wykaz listingów"
 figPrefix: "rys."
 eqnPrefix: "równanie"
 tblPrefix: "tab."
-lstPrefix: "listing"
+lstPrefix: "lst."
 secPrefix: "rozdz."
 ---

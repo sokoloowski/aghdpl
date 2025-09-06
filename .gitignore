@@ -1,2 +1,7 @@
 *.pdf
+!src/**/*.pdf
 /from-doi.bib
+.DS_Store
+*.osm.pbf
+*.cql
+/svg-inkscape/
